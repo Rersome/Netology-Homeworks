@@ -15,11 +15,22 @@ fun main() {
         if (isRegularCustomer) {
             finalPrice -= (finalPrice * discountRegularCustomer).toInt()
             println("Итоговая стоимость покупки составляет: $finalPrice")
+        } else if (!isRegularCustomer) {
+            println("Итоговая стоимость покупки составляет: $finalPrice")
         }
     } else if (amount > priceForMinDiscount) {
         finalPrice = amount - minDiscount
         if (isRegularCustomer) {
             finalPrice -= (finalPrice * discountRegularCustomer).toInt()
+            println("Итоговая стоимость покупки составляет: $finalPrice")
+        } else if (!isRegularCustomer) {
+            println("Итоговая стоимость покупки составляет: $finalPrice")
+        }
+    } else if (amount < priceForMinDiscount) {
+        if (isRegularCustomer) {
+            finalPrice -= (finalPrice * discountRegularCustomer).toInt()
+            println("Итоговая стоимость покупки составляет: $finalPrice")
+        } else if (!isRegularCustomer) {
             println("Итоговая стоимость покупки составляет: $finalPrice")
         }
     }

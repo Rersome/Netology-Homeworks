@@ -25,7 +25,7 @@ fun calculateCommission(cardType: String = "Mir", previousSum: Double = 0.0, sum
             when {
                 sum + previousSum <= MONTH_LIMIT -> 0.0
                 previousSum >= MONTH_LIMIT -> PROCENT_COMMISSION_MASTERCARD * sum + LITTLE_FEE_MASTERCARD
-                else -> PROCENT_COMMISSION_MASTERCARD * (sum - previousSum - MONTH_LIMIT) + LITTLE_FEE_MASTERCARD
+                else -> PROCENT_COMMISSION_MASTERCARD * (sum + previousSum - MONTH_LIMIT) + LITTLE_FEE_MASTERCARD
             }
         }
         "Visa" -> maxOf(PROCENT_COMMISSION_VISA * sum, 35.0)

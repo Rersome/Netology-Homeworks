@@ -22,10 +22,14 @@ fun calculateCommission(cardType: String = "Mir", previousSum: Double, sum: Doub
     val commission = when (cardType) {
         "Mir" -> 0.0
         "Mastercard" -> {
-            if (sum + previousSum <= MAX_SUM_DAY) 0.0 else PROCENT_COMMISSION_MASTERCARD * sum + LITTLE_FEE_MASTERCARD
+            when {
+                sum + previousSum <= MONTH_LIMIT -> 0.0
+                previousSum >= MONTH_LIMIT -> PROCENT_COMMISSION_MASTERCARD * sum + LITTLE_FEE_MASTERCARD
+                else -> PROCENT_COMMISSION_MASTERCARD * (sum - previousSum - MONTH_LIMIT) + LITTLE_FEE_MASTERCARD
+            }
         }
         "Visa" -> maxOf(PROCENT_COMMISSION_VISA * sum, 35.0)
         else -> null
     }
-    return "Коммисия составила $commission"
+    return "Коммиссия составила $commission"
 }

@@ -2,24 +2,17 @@ val MINUTE = 60
 val DAY = 24 * 60
 
 fun main() {
-    println(calculateTime(34))
+    println(calculateTime(61))
 }
 
 fun calculateTime(time: Int): String {
     return when (time) {
-        in 0 .. MINUTE + 1 -> getSeconds(time)
+        in 0 .. MINUTE + 1 -> "был(а) только что"
         in MINUTE + 1 ..  (MINUTE * MINUTE) -> getMinutes((time / 60).toInt())
         in MINUTE * MINUTE + 1 ..  DAY * MINUTE -> getHour((time / (MINUTE * MINUTE)).toInt())
         in DAY * MINUTE ..  DAY * MINUTE * 2 -> "был(а) вчера"
         in DAY * MINUTE * 2 .. DAY * MINUTE * 3 -> "был(а) позавчера"
         else -> "был(а) давно"
-    }
-}
-
-fun getSeconds(seconds: Int): String {
-    return when (seconds) {
-        in 0 .. 61 -> "был(а) только что"
-        else -> "был(а) только что"
     }
 }
 

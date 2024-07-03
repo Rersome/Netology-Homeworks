@@ -9,7 +9,7 @@ fun main() {
     println(calculateCommission("Mastercard", 1500.0, 150000.0))
 }
 
-fun calculateCommission(cardType: String = "Mir", previousSum: Double, sum: Double): String {
+fun calculateCommission(cardType: String = "Mir", previousSum: Double = 0.0, sum: Double): String {
 
     if (sum > MAX_SUM_DAY) {
         return "Дневной лимит был превышен"

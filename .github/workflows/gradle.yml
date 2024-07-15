@@ -20,4 +20,4 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x TransactionsNetology/gradlew
     - name: Build with Gradle
-      run: .TransactionsNetology/gradlew build --info
+      run: ./gradlew build --info
